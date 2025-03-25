@@ -1,8 +1,6 @@
-using Azure.Storage.Queues;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.InteropServices.Marshalling;
 using System.Text.Json;
-
+using Azure.Storage.Queues;
 namespace TicketHub.Controllers
 {
     [ApiController]
