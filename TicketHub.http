@@ -1,0 +1,33 @@
+@TicketHub_HostAddress = https://localhost:7105
+
+GET {{TicketHub_HostAddress}}/api/ticket
+Accept: application/json
+
+###
+
+
+
+POST {{TicketHub_HostAddress}}/api/ticket
+Content-Type: application/json
+
+{
+  "ConcertId": 0,
+  "Email": "",
+  "Name": "",
+  "Phone": "",
+  "Quantity": 0,
+  "CreditCard": "",
+  "Expiration": "",
+  "SecurityCode": "",
+  "Address": "",
+  "City": "",
+  "Province": "",
+  "PostalCode": "",
+  "Country": ""
+}
+
+###
+
+
+
+###
