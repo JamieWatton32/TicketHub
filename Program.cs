@@ -8,7 +8,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+// Add user secrets
+if (builder.Environment.IsDevelopment()) {
+    builder.Configuration.AddUserSecrets<Program>();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

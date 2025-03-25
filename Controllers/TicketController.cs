@@ -1,4 +1,6 @@
+using Azure.Storage.Queues;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text.Json;
 
 namespace TicketHub.Controllers
@@ -24,10 +26,26 @@ namespace TicketHub.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Ticket ticket) {
+        public async Task<IActionResult> PostAsync(Ticket ticket) {
             if (ModelState.IsValid == false) {
                 BadRequest(ModelState);
             }
+
+
+            string queueName = "nscc0499673storageacc";
+            // Get connection string from secrets.json
+            string? connectionString = _configuration["AzureStorageConnectionString"];
+            if (string.IsNullOrEmpty(connectionString)) {
+                return BadRequest("An error was encountered");
+            }
+            QueueClient queueClient = new QueueClient(connectionString, queueName);
+
+            // serialize an object to json
+            string message = JsonSerializer.Serialize(ticket);
+
+            // send string message to queue
+            await queueClient.SendMessageAsync(message);
+
             string jsonTicket = JsonSerializer.Serialize(ticket);
             return Ok(jsonTicket);
         }
