@@ -14,14 +14,7 @@ namespace TicketHub.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet]
-        public IActionResult Get(Ticket ticket) {
-            if (ModelState.IsValid == false) {
-                BadRequest(ModelState);
-            }
-            string jsonTicket = JsonSerializer.Serialize(ticket);
-            return Ok("Hello");
-        }
+      
 
         [HttpPost]
         public async Task<IActionResult> PostAsync(Ticket ticket) {
@@ -30,7 +23,7 @@ namespace TicketHub.Controllers
             }
 
 
-            string queueName = "nscc0499673storageacc";
+            string queueName = "ticketqueue";
             // Get connection string from secrets.json
             string? connectionString = _configuration["AzureStorageConnectionString"];
             if (string.IsNullOrEmpty(connectionString)) {

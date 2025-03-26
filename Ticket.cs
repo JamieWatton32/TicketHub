@@ -12,7 +12,7 @@ namespace TicketHub {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number is required")]
         public string Phone { get; set; } = string.Empty;
         public int Quantity { get; set; } = 0;
-        [CreditCard]
+       
         [Required(AllowEmptyStrings = false, ErrorMessage = "Credit card is required")]
         public string CreditCard { get; set; } = string.Empty;
         [Required]
