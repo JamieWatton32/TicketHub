@@ -2,45 +2,5 @@
 
 GET {{TicketHub_HostAddress}}/api/ticket
 Accept: application/json
-{
-  "ConcertId": 0,
-  "Email": "testemail@gmail.com",
-  "Name": "jamie watton",
-  "Phone": "9029999999",
-  "Quantity": 1,
-  "CreditCard": "4444444444444444",
-  "Expiration": "06/28",
-  "SecurityCode": "399",
-  "Address": "34583 newberry ave",
-  "City": "lucastown",
-  "Province": "BC",
-  "PostalCode": "B4B7F5",
-  "Country": "CA"
-}
 
 
-
-POST {{TicketHub_HostAddress}}/api/ticket
-Content-Type: application/json
-
-{
-  "ConcertId": 0,
-  "Email": "testemail@gmail.com",
-  "Name": "jamie watton",
-  "Phone": "9029999999",
-  "Quantity": 1,
-  "CreditCard": "4444444444444444",
-  "Expiration": "06/28",
-  "SecurityCode": "399",
-  "Address": "34583 newberry ave",
-  "City": "lucastown",
-  "Province": "BC",
-  "PostalCode": "B4B7F5",
-  "Country": "CA"
-}
-
-###
-
-
-
-###
