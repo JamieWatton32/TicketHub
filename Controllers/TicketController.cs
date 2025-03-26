@@ -20,7 +20,7 @@ namespace TicketHub.Controllers
                 BadRequest(ModelState);
             }
             string jsonTicket = JsonSerializer.Serialize(ticket);
-            return Ok(jsonTicket);
+            return Ok();
         }
 
         [HttpPost]
