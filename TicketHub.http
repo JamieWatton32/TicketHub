@@ -4,3 +4,23 @@ GET {{TicketHub_HostAddress}}/api/ticket
 Accept: application/json
 
 
+
+POST {{TicketHub_HostAddress}}/api/ticket
+Content-Type: application/json
+
+{
+  "ConcertId": 1,
+  "Email": "test@example.com",
+  "Name": "John Doe",
+  "Phone": "123-456-7890",
+  "Quantity": 2,
+  "CreditCard": "4111 1111 1111 1111",
+  "Expiration": "12/25",
+  "SecurityCode": "123",
+  "Address": "123 Main Street",
+  "City": "Toronto",
+  "Province": "ON",
+  "PostalCode": "M5V 3L9",
+  "Country": "Canada"
+}
+###

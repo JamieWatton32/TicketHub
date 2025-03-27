@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Azure.Storage.Queues;
+using System.Text.RegularExpressions;
 namespace TicketHub.Controllers
 {
     [ApiController]
@@ -21,8 +22,6 @@ namespace TicketHub.Controllers
             if (ModelState.IsValid == false) {
                 BadRequest(ModelState);
             }
-
-
             string queueName = "ticketqueue";
             // Get connection string from secrets.json
             string? connectionString = _configuration["AzureStorageConnectionString"];
