@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Azure.Storage.Queues;
 using System.Text.RegularExpressions;
+using System.Text;
 namespace TicketHub.Controllers
 {
     [ApiController]
@@ -32,10 +33,11 @@ namespace TicketHub.Controllers
 
             // serialize an object to json
             string message = JsonSerializer.Serialize(ticket);
-
+            var plainBytes = Encoding.UTF8.GetBytes(message);
+            string base64Message = Convert.ToBase64String(plainBytes);
             // send string message to queue
-            await queueClient.SendMessageAsync(message);
-
+            await queueClient.SendMessageAsync(base64Message);
+            
             string jsonTicket = JsonSerializer.Serialize(ticket);
             return Ok(jsonTicket);
         }
